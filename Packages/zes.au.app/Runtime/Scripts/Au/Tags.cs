@@ -1,21 +1,29 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Au
 {
     public class Tags : MonoBehaviour
     {
-        public TagData[] tags;
+        public Tag[] items;
 
         public GameObject Get(string name)
         {
-            foreach (var tag in tags)
+            foreach (var tag in items)
             {
-                if (tag.tagName == name)
+                if (tag.name == name)
                 {
-                    return tag.tagGo;
+                    return tag.target;
                 }
             }
             return null;
         }
+    }
+
+    [Serializable]
+    public class Tag
+    {
+        public string name;
+        public GameObject target;
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Au
 {
-    [CustomPropertyDrawer(typeof(TagData))]
+    [CustomPropertyDrawer(typeof(Tag))]
     public class TagDataDrawer : PropertyDrawer
     {
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
@@ -25,8 +25,8 @@ namespace Au
             var unitRect = new Rect(position.x + nameWidth + 2, position.y, position.width - nameWidth, position.height);
 
             // Draw fields - passs GUIContent.none to each so they are drawn without labels
-            EditorGUI.PropertyField(amountRect, property.FindPropertyRelative("tagName"), GUIContent.none);
-            EditorGUI.PropertyField(unitRect, property.FindPropertyRelative("tagGo"), GUIContent.none);
+            EditorGUI.PropertyField(amountRect, property.FindPropertyRelative("name"), GUIContent.none);
+            EditorGUI.PropertyField(unitRect, property.FindPropertyRelative("target"), GUIContent.none);
 
             // Set indent back to what it was
             EditorGUI.indentLevel = indent;
