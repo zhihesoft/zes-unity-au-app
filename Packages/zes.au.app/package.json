@@ -1,0 +1,15 @@
+{
+  "name": "zes.au.app",
+  "displayName": "Au App Library",
+  "version": "0.1.0",
+  "description": "Au App library for Unity3D",
+  "keywords": ["Au", "Script", "Framework", "Library"],
+  "author": {
+    "name": "Stanley Hou",
+    "email": "houyuqing@hotmail.com",
+    "url": "https://github.com/zhihesoft/zes-unity-au-app"
+  },
+  "category": "Libraries",
+  "dependencies": {
+  }
+}
