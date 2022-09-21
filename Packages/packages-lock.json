@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.tencent.puerts.core": {
+      "version": "1.4.0-preview.6",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.com"
+    },
     "com.unity.collab-proxy": {
       "version": "1.17.2",
       "depth": 0,
@@ -159,7 +166,46 @@
       "version": "file:zes.au.app",
       "depth": 0,
       "source": "embedded",
-      "dependencies": {}
+      "dependencies": {
+        "zes.au.patcher": "0.2.1"
+      }
+    },
+    "zes.au.di": {
+      "version": "0.2.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.com"
+    },
+    "zes.au.loaders": {
+      "version": "0.2.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.com"
+    },
+    "zes.au.logger": {
+      "version": "0.2.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.com"
+    },
+    "zes.au.patcher": {
+      "version": "0.2.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.com"
+    },
+    "zes.au.ts": {
+      "version": "0.2.5",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.tencent.puerts.core": "1.4.0-preview.6"
+      },
+      "url": "https://package.openupm.com"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

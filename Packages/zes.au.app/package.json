@@ -1,6 +1,6 @@
 {
   "name": "zes.au.app",
-  "displayName": "Au App Library",
+  "displayName": "Au App",
   "version": "0.1.0",
   "description": "Au App library for Unity3D",
   "keywords": ["Au", "Script", "Framework", "Library"],
@@ -11,5 +11,6 @@
   },
   "category": "Libraries",
   "dependencies": {
+	"zes.au.patcher": "0.2.1"
   }
 }

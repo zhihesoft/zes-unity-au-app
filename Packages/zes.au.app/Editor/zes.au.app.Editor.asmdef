@@ -2,7 +2,12 @@
     "name": "zes.au.app.Editor",
     "rootNamespace": "",
     "references": [
-        "zes.au.app"
+        "zes.au.app",
+        "zes.au.pather",
+		"zes.au.logger",
+		"zes.au.loaders",
+		"zes.au.di",
+		"zes.au.ts"
     ],
     "includePlatforms": [
         "Editor"

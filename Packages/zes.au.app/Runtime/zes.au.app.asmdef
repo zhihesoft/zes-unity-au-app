@@ -1,6 +1,12 @@
 {
     "name": "zes.au.app",
-    "references": [],
+    "references": [
+        "zes.au.patcher",
+		"zes.au.logger",
+		"zes.au.loaders",
+		"zes.au.di",
+		"zes.au.ts"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
