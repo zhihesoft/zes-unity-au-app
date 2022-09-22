@@ -4,7 +4,8 @@
         "value": "SKIN-GAME"
     },
     {
-        "id": "startVipLevel"
+        "id": "startviplevel",
+        "value": 0
     },
     {
         "id": "testBool"

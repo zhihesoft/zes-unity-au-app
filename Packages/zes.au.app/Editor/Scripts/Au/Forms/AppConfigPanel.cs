@@ -13,39 +13,38 @@ namespace Au.Forms
 
         public override void OnGUI()
         {
-            RenderFoldout("Application", () =>
+            var appConfig = GameSettingsManager.current.appConfig;
+
+            Foldout("Application", () =>
             {
-                manager.appConfig.appName = TextField("App name", manager.appConfig.appName);
-                manager.appConfig.appId = TextField("App Id", manager.appConfig.appId);
+                appConfig.appName = TextField("App name", appConfig.appName);
+                EditorGUILayout.LabelField("App id", Application.identifier);
                 EditorGUILayout.LabelField("App display name", Application.productName);
                 EditorGUILayout.LabelField("App version", Application.version + "." + BuildNo.Get());
             });
 
-            EditorGUILayout.Space();
 
-            RenderFoldout("Common Settings", () =>
+            Foldout("Common Settings", () =>
             {
-                manager.appConfig.loginServer = TextField("Login server", manager.appConfig.loginServer);
-                manager.appConfig.checkUpdate = BoolField("Check update", manager.appConfig.checkUpdate);
-                manager.appConfig.allowGuest = BoolField("Allow guest", manager.appConfig.allowGuest);
-                manager.appConfig.appLanguage = TextField("App language", manager.appConfig.appLanguage);
+                appConfig.loginServer = TextField("Login server", appConfig.loginServer);
+                appConfig.checkUpdate = BoolField("Check update", appConfig.checkUpdate);
+                appConfig.allowGuest = BoolField("Allow guest", appConfig.allowGuest);
+                appConfig.appLanguage = TextField("App language", appConfig.appLanguage);
             });
 
-            EditorGUILayout.Space();
 
-            RenderFoldout("Patch Settings", () =>
+            Foldout("Patch Settings", () =>
             {
-                manager.appConfig.patchServer = TextField("Patch server", manager.appConfig.patchServer);
-                manager.appConfig.minVersion = TextField("Minimun version", manager.appConfig.minVersion);
+                appConfig.patchServer = TextField("Patch server", appConfig.patchServer);
+                appConfig.minVersion = TextField("Minimun version", appConfig.minVersion);
             });
 
-            EditorGUILayout.Space();
 
-            RenderFoldout("Bundle Settings", () =>
+            Foldout("Bundle Settings", () =>
             {
-                manager.appConfig.bundleConfig = TextField("Config bundle", manager.appConfig.bundleConfig);
-                manager.appConfig.bundleLanguage = TextField("Language bundle", manager.appConfig.bundleLanguage);
-                manager.appConfig.bundleJS = TextField("Javascript bundle", manager.appConfig.bundleJS);
+                appConfig.bundleConfig = TextField("Config bundle", appConfig.bundleConfig);
+                appConfig.bundleLanguage = TextField("Language bundle", appConfig.bundleLanguage);
+                appConfig.bundleJS = TextField("Javascript bundle", appConfig.bundleJS);
             });
         }
     }

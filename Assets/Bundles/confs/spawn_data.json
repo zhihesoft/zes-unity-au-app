@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1001,
+        "monster_id": 101,
+        "monster_name": 18000,
+        "difficulty": 1,
+        "start_time": "0:05",
+        "end_time": "3:00",
+        "attribute_value": 1,
+        "spawn_type": 1,
+        "spawn_cd": 5,
+        "spawn_value": 1,
+        "max": 12,
+        "drop": 100001
+    },
+    {
+        "id": 1002,
+        "monster_id": 101,
+        "monster_name": 18001,
+        "difficulty": 1,
+        "start_time": "0:15",
+        "end_time": "5:00",
+        "attribute_value": 1.1,
+        "spawn_type": 1,
+        "spawn_cd": 10,
+        "spawn_value": 2,
+        "max": 20,
+        "drop": 100002
+    },
+    {
+        "id": 1003,
+        "monster_id": 102,
+        "monster_name": 18002,
+        "difficulty": 1,
+        "start_time": "1:00",
+        "end_time": "6:00",
+        "attribute_value": 1,
+        "spawn_type": 2,
+        "spawn_cd": 5,
+        "spawn_value": 2,
+        "max": 10,
+        "drop": "100003,100004"
+    }
+]

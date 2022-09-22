@@ -1,0 +1,13 @@
+{
+    "name": "dev",
+    "languageStartId": 18000,
+    "languageConfigName": "language",
+    "bundleDataPath": "Assets/Bundles",
+    "bundleOutputPath": "AssetBundles",
+    "javascriptProjectPath": "Typescripts",
+    "javascriptEntryEditor": "dist/index.js",
+    "javascriptBuildResult": "out/main.bytes",
+    "androidKeystorePassword": "",
+    "androidKeyAliasPassword": "",
+    "dependencies": []
+}

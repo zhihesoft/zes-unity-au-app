@@ -28,60 +28,52 @@ namespace Au.Forms
 
         public override void OnGUI()
         {
-            //EditorGUILayout.LabelField("Platform", manager.platformConfig.name);
-            //EditorGUILayout.LabelField("App config", manager.appConfig.name);
-            //EditorGUILayout.LabelField("Build no.", buildNo.ToString());
-            //EditorGUILayout.Space();
-            //using (new EditorGUILayout.HorizontalScope())
-            //{
-            //    BuildConfigurations.excelsPath = EditorGUILayout.TextField("Excels", BuildConfigurations.excelsPath);
-            //    if (GUILayout.Button("...", EditorStyles.miniButtonRight, GUILayout.Width(32)))
-            //    {
-            //        BuildConfigurations.excelsPath = EditorUtility.OpenFolderPanel("Excels Folder", BuildConfigurations.excelsPath, "");
-            //    }
-            //}
-            //BuildApp.outputDir = EditorGUILayout.TextField("Output Dir", BuildApp.outputDir);
-            //GUILayout.FlexibleSpace();
-            //EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
+            EditorGUILayout.LabelField("App id", Application.identifier);
+            EditorGUILayout.LabelField("Platform", GameSettingsManager.current.platformConfig.name);
+            EditorGUILayout.LabelField("App config", GameSettingsManager.current.appConfig.name);
+            EditorGUILayout.LabelField("Build no.", buildNo.ToString());
+            EditorGUILayout.LabelField("Excels", GameSettingsManager.current.GetLocalConfig().excelsDirectory);
+            EditorGUILayout.LabelField("Bundles", GameSettingsManager.current.projectConfig.bundleDataPath);
+            EditorGUILayout.LabelField("Output", GameSettingsManager.current.GetLocalConfig().outputDirectory);
+            EditorGUILayout.Space();
 
-            //EditorGUILayout.BeginHorizontal();
-            //{
-            //    GUILayout.FlexibleSpace();
-            //    if (GUILayout.Button("Build Bundles", GUILayout.Width(128), GUILayout.Height(32)))
-            //    {
-            //        bool buildsucc = BuildRunner.Run(EditorUserBuildSettings.activeBuildTarget,
-            //            new BuildJavascript(),
-            //            new BuildConfigurations(),
-            //            new BuildBundle());
-            //        if (!buildsucc)
-            //        {
-            //            return;
-            //        }
-            //        buildNo = BuildNo.Inc();
-            //    }
-            //    if (GUILayout.Button("Build", GUILayout.Width(64), GUILayout.Height(32)))
-            //    {
-            //        BuildProc();
-            //    }
-            //    EditorGUILayout.Space();
-            //}
-            //EditorGUILayout.EndHorizontal();
-            //EditorGUILayout.Space();
+            GUILayout.FlexibleSpace();
+            EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
+
+            EditorGUILayout.BeginHorizontal();
+            {
+                GUILayout.FlexibleSpace();
+                if (GUILayout.Button("Build Bundles", GUILayout.Width(128), GUILayout.Height(32)))
+                {
+                    BuildProc(false);
+                }
+                if (GUILayout.Button("Build", GUILayout.Width(64), GUILayout.Height(32)))
+                {
+                    BuildProc(true);
+                }
+                EditorGUILayout.Space();
+            }
+            EditorGUILayout.EndHorizontal();
+            EditorGUILayout.Space();
         }
 
-        //private async void BuildProc()
-        //{
-        //    await Task.Yield();
-        //    bool buildsucc = BuildRunner.Run(EditorUserBuildSettings.activeBuildTarget,
-        //        new BuildJavascript(),
-        //        new BuildConfigurations(),
-        //        new BuildBundle(),
-        //        new BuildApp());
-        //    if (!buildsucc)
-        //    {
-        //        return;
-        //    }
-        //    buildNo = BuildNo.Inc();
-        //}
+        private async void BuildProc(bool app)
+        {
+            await Task.Yield();
+
+            List<BuildTask> tasks = new List<BuildTask>();
+            tasks.Add(new BuildJavascript());
+            tasks.Add(new BuildExcels());
+            tasks.Add(new BuildBundle());
+            if (app)
+            {
+                tasks.Add(new BuildApp());
+            }
+
+            if (BuildRunner.Run(tasks.ToArray()))
+            {
+                buildNo = BuildNo.Inc();
+            }
+        }
     }
 }

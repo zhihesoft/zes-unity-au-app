@@ -9,8 +9,6 @@ namespace Au
         public string name = "";
         // App short name
         public string appName = "game";
-        // App id
-        public string appId = "com.lj.game";
         // App language
         public string appLanguage = "zh-cn";
         // Game login server

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEditor;
+﻿using UnityEditor;
 
 namespace Au.Builders
 {
@@ -17,8 +12,6 @@ namespace Au.Builders
 
         protected readonly Logger logger = Logger.GetLogger<BuildTask>();
         protected BuildRunner runner;
-        protected AppConfig appConfig => runner.appConfig;
-        protected PlatformConfig platformConfig => runner.platformConfig;
         protected BuildTarget target => runner.target;
 
         public bool Build(BuildRunner runner)

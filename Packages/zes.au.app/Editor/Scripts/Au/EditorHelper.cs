@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.IO.Enumeration;
 using System.Linq;
+using System.Text;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,46 +12,6 @@ namespace Au
 {
     public static class EditorHelper
     {
-        public static AppConfig LoadAppConfig()
-        {
-            return LoadAppConfig(SettingsManager.fullpathAppConfig);
-        }
-
-        public static AppConfig LoadAppConfig(string path)
-        {
-            return LoadJsonObj<AppConfig>(path);
-        }
-
-        public static void SaveAppConfig(AppConfig config)
-        {
-            SaveAppConfig(config, SettingsManager.fullpathAppConfig);
-        }
-
-        public static void SaveAppConfig(AppConfig config, string path)
-        {
-            SaveJsonObj(config, path);
-        }
-
-        public static PlatformConfig LoadPlatformConfig()
-        {
-            return LoadPlatformConfig(SettingsManager.filePlatformConfig);
-        }
-
-        public static PlatformConfig LoadPlatformConfig(string path)
-        {
-            return LoadJsonObj<PlatformConfig>(path);
-        }
-
-        public static void SavePlatformConfig(PlatformConfig config)
-        {
-            SaveJsonObj(config, SettingsManager.filePlatformConfig);
-        }
-
-        public static void SavePlatformConfig(PlatformConfig config, string path)
-        {
-            SaveJsonObj(config, path);
-        }
-
         public static string[] GetBuildScenes()
         {
             string[] scenes = EditorBuildSettings.scenes
@@ -81,16 +44,35 @@ namespace Au
             return $"{Application.version}.{BuildNo.Get()}";
         }
 
-        public static int Shell(string filename, string arguments, string workingDir = null)
+        public static StringBuilder shellOutput = new StringBuilder();
+
+
+        public static int Shell(string filename, List<string> arguments, string workingDir = null)
         {
-            ProcessStartInfo startInfo = new ProcessStartInfo();
+            ProcessStartInfo startInfo = new ProcessStartInfo
+            {
+                FileName = "cmd",
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+                CreateNoWindow = true,
+            };
+
+            startInfo.ArgumentList.Add("/c");
+            startInfo.ArgumentList.Add(filename);
+            arguments.ForEach(i => startInfo.ArgumentList.Add(i));
+
             if (!string.IsNullOrEmpty(workingDir))
             {
                 startInfo.WorkingDirectory = workingDir;
             }
-            startInfo.FileName = filename;
-            startInfo.Arguments = arguments;
+
+            shellOutput.Clear();
             var proc = Process.Start(startInfo);
+            while (!proc.StandardOutput.EndOfStream)
+            {
+                var line = proc.StandardOutput.ReadLine();
+                shellOutput.AppendLine(line);
+            }
             proc.WaitForExit();
             return proc.ExitCode;
         }

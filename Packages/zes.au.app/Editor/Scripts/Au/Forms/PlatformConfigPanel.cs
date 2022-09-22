@@ -14,43 +14,20 @@ namespace Au.Forms
 
         public override void OnGUI()
         {
-            var config = manager.platformConfig;
+            var config = GameSettingsManager.current.platformConfig;
 
-            EditorGUILayout.LabelField("secret");
-            using (new GUIIndent())
-            {
-                config.androidKeystorePassword = TextField("Android keystore pwd", config.androidKeystorePassword);
-                config.androidKeyAliasPassword = TextField("Android keyalias pwd", config.androidKeyAliasPassword);
-            }
-
-            EditorGUILayout.LabelField("i18n");
-            using (new GUIIndent())
-            {
-                config.languageStartId = IntField("Language start id", config.languageStartId);
-                config.languageConfigName = TextField("Language config name", config.languageConfigName);
-            }
-
-            EditorGUILayout.LabelField("Javascript");
-            using (new GUIIndent())
-            {
-                config.javascriptProjectPath = TextField("JS project", config.javascriptProjectPath);
-                config.javascriptEntryEditor = TextField("JS editor entry", config.javascriptEntryEditor);
-                config.javascriptBuildResult = TextField("JS build result", config.javascriptBuildResult);
-            }
-
-            EditorGUILayout.Space();
-            EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
             config.dependencies = config.dependencies ?? new string[0];
             using (new GUILayout.VerticalScope())
             {
                 using (new GUILayout.HorizontalScope())
                 {
                     EditorGUILayout.LabelField("Dependencies");
+                    GUILayout.FlexibleSpace();
                     if (GUILayout.Button("+", EditorStyles.miniButton))
                     {
                         config.dependencies = config.dependencies.Append("").ToArray();
                     }
-                    GUILayout.FlexibleSpace();
+                    //GUILayout.FlexibleSpace();
                 }
                 using (new GUIIndent())
                 {

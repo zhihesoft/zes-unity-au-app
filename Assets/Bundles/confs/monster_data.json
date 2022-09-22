@@ -1,0 +1,18 @@
+[
+    {
+        "id": 101,
+        "name": 18003,
+        "health": 1000,
+        "damage": 20,
+        "armor": 0,
+        "speed": 50
+    },
+    {
+        "id": 102,
+        "name": 18004,
+        "health": 15000,
+        "damage": 50,
+        "armor": 10,
+        "speed": 80
+    }
+]

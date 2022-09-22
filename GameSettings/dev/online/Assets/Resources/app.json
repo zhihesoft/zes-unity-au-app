@@ -1,0 +1,13 @@
+{
+    "name": "online",
+    "appName": "game",
+    "appLanguage": "zh-cn",
+    "loginServer": "http://101.35.203.136:12081/",
+    "allowGuest": true,
+    "patchServer": "http://101.35.203.136:12082/",
+    "minVersion": "1.0.0",
+    "checkUpdate": true,
+    "bundleJS": "js",
+    "bundleConfig": "conf",
+    "bundleLanguage": "language"
+}

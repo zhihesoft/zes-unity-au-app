@@ -11,6 +11,10 @@
   },
   "category": "Libraries",
   "dependencies": {
-	"zes.au.patcher": "0.2.1"
+	"zes.au.patcher": "0.2.1",
+    "zes.au.logger": "0.2.0",
+    "zes.au.loaders": "0.2.0",
+    "zes.au.di": "0.2.1",
+    "zes.au.ts": "0.2.5"
   }
 }

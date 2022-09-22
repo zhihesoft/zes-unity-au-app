@@ -2,6 +2,7 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
+.localconfig
 .vsconfig
 UserSettings/
 /[Ll]ibrary/
@@ -11,6 +12,11 @@ UserSettings/
 /[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
+Typescripts/node_modules/
+Typescripts/dist/
+Typescripts/.vscode/
+Typescripts/out/
+
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta

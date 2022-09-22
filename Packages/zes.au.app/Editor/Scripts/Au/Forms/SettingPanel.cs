@@ -10,8 +10,6 @@ namespace Au.Forms
         public abstract string Description { get; }
         public bool dirty { get; set; }
 
-        public SettingsManager manager;
-
         Dictionary<string, bool> foldoutFlags = new Dictionary<string, bool>();
 
         /// <summary>
@@ -53,7 +51,7 @@ namespace Au.Forms
             return ret;
         }
 
-        protected void RenderFoldout(string name, System.Action act)
+        protected void Foldout(string name, System.Action act, bool addSpace = true)
         {
             if (!foldoutFlags.TryGetValue(name, out bool flag))
             {
@@ -72,6 +70,11 @@ namespace Au.Forms
             if (newflag != flag)
             {
                 foldoutFlags[name] = newflag;
+            }
+
+            if (addSpace)
+            {
+                EditorGUILayout.Space();
             }
         }
 

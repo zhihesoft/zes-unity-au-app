@@ -1,0 +1,9 @@
+{
+    "languageStartId": 18000,
+    "languageConfigName": "language",
+    "bundleDataPath": "Assets/Bundles",
+    "bundleOutputPath": "AssetBundles",
+    "javascriptProjectPath": "Typescripts",
+    "javascriptEntryEditor": "Typescripts/dist/index.js",
+    "javascriptBuildResult": "Typescripts/out/main.bytes"
+}

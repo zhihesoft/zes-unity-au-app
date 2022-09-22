@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -58,6 +60,46 @@ namespace Au
             var offset = new DateTimeOffset(DateTime.UtcNow);
             long stamp = offset.ToUnixTimeSeconds();
             return stamp;
+        }
+
+        public static DirectoryInfo DirEnsure(string dir)
+        {
+            return DirEnsure(new DirectoryInfo(dir));
+        }
+
+        // ensure dir exist
+        public static DirectoryInfo DirEnsure(DirectoryInfo dir)
+        {
+            if (!dir.Parent.Exists)
+            {
+                DirEnsure(dir.Parent);
+            }
+
+            if (!dir.Exists)
+            {
+                dir.Create();
+            }
+
+            return dir;
+        }
+
+        public static void DirCopy(string from, string to)
+        {
+            DirCopy(new DirectoryInfo(from), new DirectoryInfo(to));
+        }
+
+        public static void DirCopy(DirectoryInfo from, DirectoryInfo to)
+        {
+            if (!from.Exists)
+            {
+                Debug.LogError($"Copy dir failed: {from.FullName} not existed");
+                return;
+            }
+
+            DirEnsure(to);
+
+            from.GetFiles().ToList().ForEach(file => file.CopyTo(Path.Combine(to.FullName, file.Name), true));
+            from.GetDirectories().ToList().ForEach(dir => DirCopy(dir, new DirectoryInfo(Path.Combine(to.FullName, dir.Name))));
         }
 
     }

@@ -1,5 +1,5 @@
 {
-    "name": "dev_local",
+    "name": "local",
     "appName": "game",
     "appLanguage": "zh-cn",
     "loginServer": "http://localhost:3000/game",
@@ -7,10 +7,7 @@
     "patchServer": "http://localhost:3001/patch",
     "minVersion": "0.0.0",
     "checkUpdate": false,
-    "bundleDataDir": "Assets/Bundles",
-    "bundleOutputDir": "AssetBundles",
     "bundleJS": "js",
-    "bundleConfig": "conf",
-    "bundleLanguage": "language",
-    "javascriptEntry": "Typescripts/dist/index.js"
+    "bundleConfig": "confs",
+    "bundleLanguage": "language"
 }

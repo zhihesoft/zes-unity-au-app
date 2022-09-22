@@ -167,11 +167,15 @@
       "depth": 0,
       "source": "embedded",
       "dependencies": {
-        "zes.au.patcher": "0.2.1"
+        "zes.au.patcher": "0.2.1",
+        "zes.au.logger": "0.2.0",
+        "zes.au.loaders": "0.2.0",
+        "zes.au.di": "0.2.1",
+        "zes.au.ts": "0.2.5"
       }
     },
     "zes.au.di": {
-      "version": "0.2.0",
+      "version": "0.2.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {},

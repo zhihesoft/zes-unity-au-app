@@ -1,0 +1,34 @@
+[
+    {
+        "id": 501,
+        "name": 18005,
+        "health": 150,
+        "armor": 10,
+        "speed": 100,
+        "bullet_id": 10001,
+        "cd": 0,
+        "vision": 250,
+        "luck": 0,
+        "exp_bonus": 0,
+        "gold_bonus": 0,
+        "pick_range": 20,
+        "skill_max": 6,
+        "equip_max": 6
+    },
+    {
+        "id": 502,
+        "name": 18006,
+        "health": 120,
+        "armor": 8,
+        "speed": 110,
+        "bullet_id": 10002,
+        "cd": 0,
+        "vision": 250,
+        "luck": 0,
+        "exp_bonus": 0,
+        "gold_bonus": 0,
+        "pick_range": 20,
+        "skill_max": 9,
+        "equip_max": 4
+    }
+]
