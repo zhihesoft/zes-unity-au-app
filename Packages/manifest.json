@@ -10,7 +10,10 @@
     "com.unity.timeline": "1.6.4",
     "com.unity.ugui": "1.0.0",
     "com.unity.visualscripting": "1.7.8",
+    "zes.au.di": "0.2.1",
+    "zes.au.logger": "0.2.0",
     "zes.au.patcher": "0.2.1",
+    "zes.au.ts": "0.2.5",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
@@ -42,9 +45,6 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0",
-    "zes.au.logger": "0.2.0",
-    "zes.au.di": "0.2.1",
-    "zes.au.ts": "0.2.5",
     "zes.au.loaders": "0.2.1"
   },
   "scopedRegistries": [

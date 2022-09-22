@@ -48,14 +48,20 @@ namespace Au
         {
             ProcessStartInfo startInfo = new ProcessStartInfo
             {
+#if UNITY_EDITOR_WIN
                 FileName = "cmd",
+#else
+                FileName = "/bin/bash",
+#endif
                 UseShellExecute = false,
                 RedirectStandardOutput = true,
                 RedirectStandardError = true,
                 CreateNoWindow = true,
             };
 
+#if UNITY_EDITOR_WIN
             startInfo.ArgumentList.Add("/c");
+#endif
             startInfo.ArgumentList.Add(filename);
             arguments.ForEach(i => startInfo.ArgumentList.Add(i));
 
