@@ -55,10 +55,10 @@
         "com.openupm",
         "com.tencent.puerts.core",
         "zes.au.di",
-        "zes.au.loaders",
         "zes.au.logger",
         "zes.au.patcher",
-        "zes.au.ts"
+        "zes.au.ts",
+        "zes.au.loaders"
       ]
     }
   ]
