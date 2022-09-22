@@ -65,6 +65,7 @@ namespace Au.Forms
             tasks.Add(new BuildJavascript());
             tasks.Add(new BuildExcels());
             tasks.Add(new BuildBundle());
+            tasks.Add(new BuildPatch());
             if (app)
             {
                 tasks.Add(new BuildApp());

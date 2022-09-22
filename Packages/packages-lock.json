@@ -162,11 +162,19 @@
       },
       "url": "https://packages.unity.cn"
     },
+    "io.github.icsharpcode.sharpziplib": {
+      "version": "1.2.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.com"
+    },
     "zes.au.app": {
       "version": "file:zes.au.app",
       "depth": 0,
       "source": "embedded",
       "dependencies": {
+        "io.github.icsharpcode.sharpziplib": "1.2.0",
         "zes.au.patcher": "0.2.1",
         "zes.au.logger": "0.2.0",
         "zes.au.loaders": "0.2.1",

@@ -2,6 +2,7 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
+out/
 AssetBundles/
 .localconfig
 .vsconfig
@@ -21,6 +22,10 @@ Typescripts/out/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
+
+Assets/StreamingAssets.meta
+Assets/StreamingAssets/
+
 
 # Uncomment this line if you wish to ignore the asset store tools plugin
 # /[Aa]ssets/AssetStoreTools*

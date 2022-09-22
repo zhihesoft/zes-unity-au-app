@@ -1,4 +1,6 @@
-﻿namespace Au.Builders
+﻿using System.IO;
+
+namespace Au.Builders
 {
     internal class BuildBundle : BuildTask
     {
@@ -17,7 +19,7 @@
         protected override bool OnBuild()
         {
             Loaders.ResourceBuilder.BuildBundles(
-                GameSettingsManager.current.projectConfig.bundleOutputPath,
+                Path.Combine(GameSettingsManager.current.projectConfig.bundleOutputPath, target.ToString()),
                 runner.target);
             return true;
         }

@@ -45,7 +45,8 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0",
-    "zes.au.loaders": "0.2.1"
+    "zes.au.loaders": "0.2.1",
+    "io.github.icsharpcode.sharpziplib": "1.2.0"
   },
   "scopedRegistries": [
     {
@@ -54,11 +55,12 @@
       "scopes": [
         "com.openupm",
         "com.tencent.puerts.core",
+        "io.github.icsharpcode.sharpziplib",
         "zes.au.di",
+        "zes.au.loaders",
         "zes.au.logger",
         "zes.au.patcher",
-        "zes.au.ts",
-        "zes.au.loaders"
+        "zes.au.ts"
       ]
     }
   ]

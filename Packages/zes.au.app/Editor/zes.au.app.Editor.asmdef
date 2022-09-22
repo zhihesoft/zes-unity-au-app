@@ -2,6 +2,7 @@
     "name": "zes.au.app.Editor",
     "rootNamespace": "",
     "references": [
+		"io.github.icsharpcode.sharpziplib",
         "zes.au.app",
         "zes.au.patcher",
         "zes.au.patcher.Editor",

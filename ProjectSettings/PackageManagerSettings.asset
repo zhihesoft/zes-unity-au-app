@@ -31,6 +31,7 @@ MonoBehaviour:
     m_Scopes:
     - com.openupm
     - com.tencent.puerts.core
+    - io.github.icsharpcode.sharpziplib
     - zes.au.di
     - zes.au.loaders
     - zes.au.logger
@@ -43,6 +44,6 @@ MonoBehaviour:
   m_RegistryInfoDraft:
     m_Modified: 0
     m_ErrorMessage: 
-    m_UserModificationsInstanceId: -832
+    m_UserModificationsInstanceId: -830
     m_OriginalInstanceId: -834
   m_LoadAssets: 0

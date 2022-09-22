@@ -11,6 +11,7 @@
   },
   "category": "Libraries",
   "dependencies": {
+	"io.github.icsharpcode.sharpziplib": "1.2.0",
 	"zes.au.patcher": "0.2.1",
     "zes.au.logger": "0.2.0",
     "zes.au.loaders": "0.2.1",

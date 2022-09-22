@@ -83,14 +83,14 @@ namespace Au
             return proc.ExitCode;
         }
 
-        public static string GetAppOutputName(AppConfig appConfig, PlatformConfig platformConfig)
+        public static string GetAppOutputName(AppConfig appConfig, PlatformConfig platformConfig, BuildTarget target)
         {
             string appOutputName = string.Join("_",
                 appConfig.appName,
+                target.ToString().ToLower(),
                 platformConfig.name,
                 appConfig.name,
-                CurrentVersion(),
-                DateTime.Now.ToString("yyyyMMdd")
+                CurrentVersion()
                 );
             return appOutputName;
 

@@ -34,6 +34,7 @@ namespace Au.Forms
 
             Foldout("Android secret", () =>
             {
+                config.androidKeyStoreFile = TextField("Android keystore", config.androidKeyStoreFile);
                 config.androidKeystorePassword = TextField("Android keystore pwd", config.androidKeystorePassword);
                 config.androidKeyAliasPassword = TextField("Android keyalias pwd", config.androidKeyAliasPassword);
             });
