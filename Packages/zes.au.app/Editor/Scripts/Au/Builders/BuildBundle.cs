@@ -10,6 +10,7 @@
 
         protected override bool BeforeBuild()
         {
+            Au.Loaders.ResourceBuilder.AutoCreateBundleNames(GameSettingsManager.current.projectConfig.bundleDataPath);
             return GameSettingsManager.current != null;
         }
 

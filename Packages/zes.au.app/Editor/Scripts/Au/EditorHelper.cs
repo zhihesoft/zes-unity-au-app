@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.IO.Enumeration;
 using System.Linq;
 using System.Text;
 using UnityEditor;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 namespace Au
 {
@@ -44,9 +44,6 @@ namespace Au
             return $"{Application.version}.{BuildNo.Get()}";
         }
 
-        public static StringBuilder shellOutput = new StringBuilder();
-
-
         public static int Shell(string filename, List<string> arguments, string workingDir = null)
         {
             ProcessStartInfo startInfo = new ProcessStartInfo
@@ -54,6 +51,7 @@ namespace Au
                 FileName = "cmd",
                 UseShellExecute = false,
                 RedirectStandardOutput = true,
+                RedirectStandardError = true,
                 CreateNoWindow = true,
             };
 
@@ -66,14 +64,16 @@ namespace Au
                 startInfo.WorkingDirectory = workingDir;
             }
 
-            shellOutput.Clear();
             var proc = Process.Start(startInfo);
-            while (!proc.StandardOutput.EndOfStream)
-            {
-                var line = proc.StandardOutput.ReadLine();
-                shellOutput.AppendLine(line);
-            }
+
             proc.WaitForExit();
+
+            if (proc.ExitCode != 0)
+            {
+                Debug.LogError(proc.StandardOutput.ReadToEnd());
+                Debug.LogError(proc.StandardError.ReadToEnd());
+            }
+
             return proc.ExitCode;
         }
 
@@ -89,7 +89,6 @@ namespace Au
             return appOutputName;
 
         }
-
 
         public static DirectoryInfo DirEnsure(string dir)
         {

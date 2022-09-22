@@ -11,6 +11,13 @@
         public override void OnGUI()
         {
             var config = GameSettingsManager.current.projectConfig;
+
+            Foldout("Bundles", () =>
+            {
+                config.bundleDataPath = TextField("Bundle data dir", config.bundleDataPath);
+                config.bundleOutputPath = TextField("Bundle out dir", config.bundleOutputPath);
+            });
+
             Foldout("i18n", () =>
             {
                 config.languageStartId = IntField("Language start id", config.languageStartId);

@@ -55,8 +55,6 @@ namespace Au.Builders
             if (code != 0)
             {
                 logger.Error("excel export failed with code " + code);
-                logger.Error("output:");
-                logger.Error(EditorHelper.shellOutput.ToString());
                 return false;
             }
 

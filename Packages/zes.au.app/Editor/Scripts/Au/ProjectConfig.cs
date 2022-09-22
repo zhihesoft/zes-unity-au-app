@@ -10,7 +10,7 @@ namespace Au
         // language config name
         public string languageConfigName = "language";
         // Bundle data dir
-        public string bundleDataPath = "Assets/Bundles";
+        public string bundleDataPath = "Bundles";
         // bundle output path
         public string bundleOutputPath = "AssetBundles";
         // javascript project path

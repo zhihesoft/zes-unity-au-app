@@ -29,8 +29,6 @@ namespace Au.Builders
             if (exitCode != 0)
             {
                 logger.Error("build ts source failed with code " + exitCode);
-                logger.Error("output:");
-                logger.Error(EditorHelper.shellOutput.ToString());
                 return false;
             }
 

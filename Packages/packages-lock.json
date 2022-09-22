@@ -169,7 +169,7 @@
       "dependencies": {
         "zes.au.patcher": "0.2.1",
         "zes.au.logger": "0.2.0",
-        "zes.au.loaders": "0.2.0",
+        "zes.au.loaders": "0.2.1",
         "zes.au.di": "0.2.1",
         "zes.au.ts": "0.2.5"
       }
@@ -182,7 +182,7 @@
       "url": "https://package.openupm.com"
     },
     "zes.au.loaders": {
-      "version": "0.2.0",
+      "version": "0.2.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
