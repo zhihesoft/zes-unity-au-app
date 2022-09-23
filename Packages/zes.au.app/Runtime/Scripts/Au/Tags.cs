@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Au.TS;
+using System;
 using UnityEngine;
 
 namespace Au
 {
+    [JSWrap]
     public class Tags : MonoBehaviour
     {
         public Tag[] items;

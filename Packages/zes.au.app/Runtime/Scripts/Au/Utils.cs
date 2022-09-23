@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Au.TS;
+using System;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -7,6 +8,7 @@ using UnityEngine;
 
 namespace Au
 {
+    [JSWrap]
     public static class Utils
     {
         readonly static string[] webprefix = new string[] { "jar:", "http:", "https:" };

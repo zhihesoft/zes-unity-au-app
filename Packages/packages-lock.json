@@ -179,7 +179,7 @@
         "zes.au.logger": "0.2.0",
         "zes.au.loaders": "0.2.1",
         "zes.au.di": "0.2.1",
-        "zes.au.ts": "0.2.5"
+        "zes.au.ts": "0.2.6"
       }
     },
     "zes.au.di": {
@@ -211,7 +211,7 @@
       "url": "https://package.openupm.com"
     },
     "zes.au.ts": {
-      "version": "0.2.5",
+      "version": "0.2.6",
       "depth": 0,
       "source": "registry",
       "dependencies": {

@@ -1,6 +1,7 @@
 {
     "name": "zes.au.app",
     "references": [
+		"com.tencent.puerts.core",
         "zes.au.patcher",
 		"zes.au.logger",
 		"zes.au.loaders",
