@@ -10,11 +10,6 @@ namespace Au.Loaders
 {
     public abstract class Loader
     {
-        /// <summary>
-        /// Patch data path
-        /// </summary>
-        public static string patchDataPath { get; set; } = "patch_data";
-
         protected static Log log = Log.GetLogger<Loader>();
 
         protected readonly Dictionary<string, PendingItem> pendingItems = new Dictionary<string, PendingItem>();

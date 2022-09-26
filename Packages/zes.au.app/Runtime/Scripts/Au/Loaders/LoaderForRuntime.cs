@@ -11,6 +11,8 @@ namespace Au.Loaders
 {
     public class LoaderForRuntime : Loader
     {
+        public static string patchDataPath = "patch_data";
+
         protected Dictionary<string, AssetBundle> bundles = new Dictionary<string, AssetBundle>();
         protected Dictionary<string, string> assets2bundle = new Dictionary<string, string>();
 
@@ -54,17 +56,34 @@ namespace Au.Loaders
 
             name = name.ToLower();
             string bundlePath = Path.Combine(Application.persistentDataPath, patchDataPath, name);
-
             if (!File.Exists(bundlePath))
             {
+#if USING_AAB
+                Google.Play.AssetDelivery.PlayAssetBundleRequest bundleReq =
+                Google.Play.AssetDelivery.PlayAssetDelivery.RetrieveAssetBundleAsync(name);
+                await Utils.WaitUntil(() => !bundleReq.keepWaiting);
+                if (bundleReq.Status != Google.Play.AssetDelivery.AssetDeliveryStatus.Loaded)
+                {
+                    log.Error($"cannot load bundle ({name}) from aab");
+                    return false;
+                }
+                bundle = bundleReq.AssetBundle;
+#else
                 bundlePath = Path.Combine(Application.streamingAssetsPath, name);
+                if (!File.Exists(bundlePath))
+                {
+                    return false;
+                }
+#endif
             }
 
-            Debug.Assert(File.Exists(bundlePath), $"cannot find bundle in path: ({bundlePath})");
-
-            var bundlereq = AssetBundle.LoadFromFileAsync(bundlePath);
-            await Utils.WaitAsyncOperation(bundlereq, progress);
-            bundle = bundlereq.assetBundle;
+            if (bundle == null)
+            {
+                Debug.Assert(File.Exists(bundlePath), $"cannot find bundle in path: ({bundlePath})");
+                var bundlereq = AssetBundle.LoadFromFileAsync(bundlePath);
+                await Utils.WaitAsyncOperation(bundlereq, progress);
+                bundle = bundlereq.assetBundle;
+            }
 
             Debug.Assert(bundle != null, $"load bundle {name} failed, result is null");
             bundles.Add(name, bundle);
