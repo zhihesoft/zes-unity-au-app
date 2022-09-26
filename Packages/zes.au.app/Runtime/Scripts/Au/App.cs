@@ -71,8 +71,8 @@ namespace Au
 
             _tsApp = new TSApp(new StartupInfo
             {
-                onInit = _init.InitJS,
-                scriptChunk = scriptChunk
+                initActions = _init.InitJS,
+                scriptLocation = scriptChunk
             });
             _tsApp.Run();
         }

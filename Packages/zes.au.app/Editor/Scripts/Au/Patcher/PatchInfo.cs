@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Au.Patcher
 {
@@ -7,6 +8,6 @@ namespace Au.Patcher
     {
         public string app;
         public string version;
-        public PatchFileInfo[] files;
+        public Dictionary<string, PatchFileInfo> files;
     }
 }

@@ -1,12 +1,12 @@
-﻿using Codice.CM.Common;
+﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using UnityEngine;
 using UnityEngine.Assertions;
-using UnityEngine.Networking.Match;
 
 namespace Au.Patcher
 {
@@ -52,37 +52,32 @@ namespace Au.Patcher
         /// </summary>
         /// <param name="bundlesDir"></param>
         /// <returns></returns>
-        private static PatchFileInfo[] CalcBundleHash(string bundlesDir, bool useShortHash)
+        private static Dictionary<string, PatchFileInfo> CalcBundleHash(string bundlesDir, bool useShortHash)
         {
             AssetBundle.UnloadAllAssetBundles(true);
-
             var bundles = GetBundles(bundlesDir);
-
-            var ret = bundles.Select(i =>
-            {
-                string path = Path.Combine(bundlesDir, i);
-                var item = AssetBundle.LoadFromFile(path);
-                string[] assets = item.isStreamedSceneAssetBundle ? item.GetAllScenePaths() : item.GetAllAssetNames();
-                item.Unload(true);
-
-                string md5sum = "";
-                int size = (int)new FileInfo(path).Length;
-                md5sum = assets.AsParallel().Aggregate("", (last, value) => CalcAssetMD5(value) + last);
-                md5sum = CalcMD5(md5sum);
-                if (useShortHash)
+            var ret = bundles.ToDictionary(
+                i => i,
+                i =>
                 {
-                    md5sum = md5sum.Substring(0, 8);
+                    string path = Path.Combine(bundlesDir, i);
+                    var item = AssetBundle.LoadFromFile(path);
+                    string[] assets = item.isStreamedSceneAssetBundle ? item.GetAllScenePaths() : item.GetAllAssetNames();
+                    item.Unload(true);
+
+                    string md5sum = "";
+                    int size = (int)new FileInfo(path).Length;
+                    md5sum = assets.AsParallel().Aggregate("", (last, value) => CalcAssetMD5(value) + last);
+                    md5sum = CalcMD5(md5sum);
+                    if (useShortHash)
+                    {
+                        md5sum = md5sum.Substring(0, 8);
+                    }
+                    return new PatchFileInfo { md5 = md5sum, size = size };
                 }
-                return new PatchFileInfo
-                {
-                    size = size,
-                    path = i,
-                    md5 = md5sum,
-                }; // CalcMD5(md5sum);
-            });
-
+            );
             AssetBundle.UnloadAllAssetBundles(true);
-            return ret.ToArray();
+            return ret;
         }
 
         private static string[] GetBundles(string bundlesDir)
@@ -134,7 +129,8 @@ namespace Au.Patcher
             Encoding utf8WithoutBOM = new UTF8Encoding(false);
             using (StreamWriter writer = new StreamWriter(path, false, utf8WithoutBOM))
             {
-                var json = JsonUtility.ToJson(obj, prettyPrint);
+                var json = JsonConvert.SerializeObject(obj, prettyPrint ? Formatting.Indented : Formatting.None);
+                // var json = JsonUtility.ToJson(obj, prettyPrint);
                 writer.Write(json);
             }
         }

@@ -12,8 +12,6 @@
   "category": "Libraries",
   "dependencies": {
 	"io.github.icsharpcode.sharpziplib": "1.2.0",
-	"com.tencent.puerts.core": "1.4.0-rc.1",
-    "zes.au.loaders": "0.2.1",
-    "zes.au.di": "0.2.1"
+	"com.tencent.puerts.core": "1.4.0-rc.1"
   }
 }

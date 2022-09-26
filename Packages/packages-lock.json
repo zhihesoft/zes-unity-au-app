@@ -175,24 +175,8 @@
       "source": "embedded",
       "dependencies": {
         "io.github.icsharpcode.sharpziplib": "1.2.0",
-        "com.tencent.puerts.core": "1.4.0-rc.1",
-        "zes.au.loaders": "0.2.1",
-        "zes.au.di": "0.2.1"
+        "com.tencent.puerts.core": "1.4.0-rc.1"
       }
-    },
-    "zes.au.di": {
-      "version": "0.2.1",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://package.openupm.com"
-    },
-    "zes.au.loaders": {
-      "version": "0.2.1",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://package.openupm.com"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

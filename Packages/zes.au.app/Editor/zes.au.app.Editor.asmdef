@@ -5,10 +5,7 @@
 		"io.github.icsharpcode.sharpziplib",
 		"com.tencent.puerts.core",
 		"com.tencent.puerts.core.Editor",
-        "zes.au.app",
-		"zes.au.loaders",
-		"zes.au.loaders.Editor",
-		"zes.au.di"
+        "zes.au.app"
     ],
     "includePlatforms": [
         "Editor"

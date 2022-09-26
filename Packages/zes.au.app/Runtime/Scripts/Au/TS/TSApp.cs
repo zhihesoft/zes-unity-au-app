@@ -1,5 +1,7 @@
 ﻿using Puerts;
 using System;
+using System.Threading.Tasks;
+using UnityEngine;
 using UnityEngine.Assertions;
 
 namespace Au.TS
@@ -9,13 +11,23 @@ namespace Au.TS
     /// </summary>
     public class TSApp : IDisposable
     {
-        public TSApp(string scriptChunk) : this(new StartupInfo { scriptChunk = scriptChunk }) { }
+        const string localScriptPrefix = "local://";
+        const string bundleScriptPrefix = "bundle://";
+
+        /// <summary>
+        /// Create a new TSApp instance
+        /// </summary>
+        /// <param name="scriptLocation">
+        /// Local file local://path/to/index.js
+        /// Bundle file bundle://bundlename/path/to/asset
+        /// </param>
+        public TSApp(string scriptLocation) : this(new StartupInfo { scriptLocation = scriptLocation }) { }
 
         public TSApp(StartupInfo startupInfo)
         {
             Assert.IsNotNull(startupInfo);
             this.startupInfo = startupInfo;
-            loader = new JSLoader(startupInfo.scriptChunk);
+            loader = new JSLoader(startupInfo.scriptLocation);
         }
 
         private readonly StartupInfo startupInfo;
@@ -24,13 +36,24 @@ namespace Au.TS
 
         public JsEnv env { get; private set; }
 
-        public void Run()
+        public async Task<bool> Run()
         {
             Assert.IsNull(env);
+            string scriptpath = "";
+            if (startupInfo.scriptLocation.StartsWith(localScriptPrefix))
+            {
+                scriptpath = startupInfo.scriptLocation.Substring(localScriptPrefix.Length);
+            }
+            else
+            {
+                scriptpath = startupInfo.scriptLocation.Substring(bundleScriptPrefix.Length);
+            }
+
             env = new JsEnv(loader, startupInfo.debugPort);
             CommonInit(env);
-            startupInfo.onInit?.Invoke(env);
+            startupInfo.initActions?.Invoke(env);
             env.Eval($"require('{loader.rootFile}');");
+            return true;
         }
 
         public void Dispose()

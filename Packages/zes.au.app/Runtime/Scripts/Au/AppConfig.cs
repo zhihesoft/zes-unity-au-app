@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Au.TS;
+using System;
 
 namespace Au
 {
+    [JSWrap]
     [Serializable]
     public class AppConfig
     {

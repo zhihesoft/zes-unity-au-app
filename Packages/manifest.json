@@ -10,7 +10,6 @@
     "com.unity.timeline": "1.6.4",
     "com.unity.ugui": "1.0.0",
     "com.unity.visualscripting": "1.7.8",
-    "zes.au.di": "0.2.1",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
@@ -42,7 +41,6 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0",
-    "zes.au.loaders": "0.2.1",
     "io.github.icsharpcode.sharpziplib": "1.2.0",
     "com.tencent.puerts.core": "1.4.0-rc.1"
   },
@@ -53,9 +51,7 @@
       "scopes": [
         "com.openupm",
         "com.tencent.puerts.core",
-        "io.github.icsharpcode.sharpziplib",
-        "zes.au.di",
-        "zes.au.loaders"
+        "io.github.icsharpcode.sharpziplib"
       ]
     }
   ]
