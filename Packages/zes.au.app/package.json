@@ -12,6 +12,7 @@
   "category": "Libraries",
   "dependencies": {
 	"io.github.icsharpcode.sharpziplib": "1.2.0",
+	"com.unity.textmeshpro": "3.0.6",
 	"com.tencent.puerts.core": "1.4.0-rc.1"
   }
 }

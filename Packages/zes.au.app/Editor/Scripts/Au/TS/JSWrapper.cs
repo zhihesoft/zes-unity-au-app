@@ -3,6 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using TMPro;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.Video;
 
 namespace Au.TS
 {
@@ -27,6 +33,55 @@ namespace Au.TS
 
                 typesList.AddRange(wrapTypes);
                 return typesList;
+            }
+        }
+
+        [Binding]
+        public static IEnumerable<Type> CommonBindings
+        {
+            get
+            {
+                return new Type[]
+                {
+                    typeof(Vector2),
+                    typeof(Vector3),
+                    typeof(Color),
+                    typeof(Scene),
+                    typeof(UnityEngine.Object),
+                    typeof(Application),
+                    typeof(SystemInfo),
+                    typeof(Array),
+                    typeof(Component),
+                    typeof(AsyncOperation),
+                    typeof(Resources),
+                    typeof(TextAsset),
+                    typeof(GameObject),
+                    typeof(Transform),
+                    typeof(RectTransform),
+                    typeof(CanvasGroup),
+                    typeof(AssetBundle),
+                    typeof(Sprite),
+                    typeof(Graphic),
+                    typeof(Image),
+                    typeof(Text),
+                    typeof(Button),
+                    typeof(Toggle),
+                    typeof(ToggleGroup),
+                    typeof(Slider),
+                    typeof(Button.ButtonClickedEvent),
+                    typeof(UnityEvent),
+                    typeof(UnityEventBase),
+                    typeof(PlayerPrefs),
+                    typeof(VideoPlayer),
+                    typeof(VideoClip),
+                    typeof(Behaviour),
+                    typeof(Animator),
+                    typeof(Animation),
+                    typeof(UnityEngine.AI.NavMeshAgent),
+
+                    typeof(TMP_Text),
+
+                };
             }
         }
 

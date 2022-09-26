@@ -3,6 +3,7 @@
     "rootNamespace": "",
     "references": [
 		"io.github.icsharpcode.sharpziplib",
+		"Unity.TextMeshPro",
 		"com.tencent.puerts.core",
 		"com.tencent.puerts.core.Editor",
         "zes.au.app"
