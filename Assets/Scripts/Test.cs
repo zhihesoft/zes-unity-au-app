@@ -1,17 +1,19 @@
-using System.Collections;
+using Puerts;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Test : MonoBehaviour
+[Configure]
+public class Test
 {
-    // Start is called before the first frame update
-    void Start()
+    [Binding]
+    public static IEnumerable<System.Type> bindings
     {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        get
+        {
+            return new System.Type[] {
+                typeof(GameObject),
+                typeof(UnityEngine.UI.Image),
+            };
+        }
     }
 }

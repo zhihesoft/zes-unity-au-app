@@ -4,19 +4,9 @@ using Puerts;
 
 internal class TestInit : AppInit
 {
-    public override string javascriptAssetPath => "Assets/Bundles/js/main.bytes";
+    public override string javascriptAssetPath => "bundle://js/Assets/Bundles/js/main.bytes";
 
-    public override bool javascriptInEditor
-    {
-        get
-        {
-#if UNITY_EDITOR
-            return true;
-#else
-            return false;
-#endif
-        }
-    }
+    public override string javascriptDebugPath => "file://./Typescripts/dist/index.js";
 
     public override Loader CreateLoader()
     {

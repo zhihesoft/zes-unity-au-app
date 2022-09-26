@@ -1,6 +1,5 @@
 ﻿using Puerts;
 using System.IO;
-using UnityEngine;
 
 namespace Au.TS
 {
@@ -9,13 +8,16 @@ namespace Au.TS
         /// <summary>
         /// Create a JSLoader
         /// </summary>
-        /// <param name="chunk">root script chunk or file, if it is a file, must start with '.'</param>
+        /// <param name="chunk">root script chunk or file</param>
         public JSLoader(string chunk)
         {
             this.chunk = chunk;
             bundleMode = !File.Exists(chunk);
             rootFile = bundleMode ? "_" : chunk;
+            log.Info($"bundleMode: {bundleMode}");
         }
+
+        private Log log = Log.GetLogger<JSLoader>();
 
         private readonly bool bundleMode;
 

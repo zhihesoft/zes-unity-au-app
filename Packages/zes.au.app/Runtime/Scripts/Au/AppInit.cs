@@ -10,14 +10,14 @@ namespace Au
     public abstract class AppInit : MonoBehaviour
     {
         /// <summary>
-        /// Javascript asset path. (e.g. Assets/Bundles/js/main.bytes)
+        /// Javascript asset path. (e.g. bundle://js/Assets/Bundles/js/main.bytes)
         /// </summary>
         public abstract string javascriptAssetPath { get; }
 
         /// <summary>
-        /// Javascript debug mode, if true, scripts will be loaded directly from js files
+        /// Javascript debug path. (e.g. file://Typescripts/dist/index.js )
         /// </summary>
-        public abstract bool javascriptInEditor { get; }
+        public abstract string javascriptDebugPath { get; }
 
         /// <summary>
         /// Init js env
@@ -30,12 +30,5 @@ namespace Au
         /// </summary>
         /// <returns></returns>
         public abstract Loader CreateLoader();
-        //        {
-        //#if UNITY_EDITOR
-        //            return new LoaderForEditor();
-        //#else
-        //            return new LoaderForRuntime();
-        //#endif
-        //        }
     }
 }

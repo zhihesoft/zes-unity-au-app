@@ -7,7 +7,7 @@ namespace Au.TS
     {
         /// <summary>
         /// Script location
-        /// Local file: local://path/to/index.js
+        /// Local file: file://path/to/file
         /// Bundle file: bundle://bundlename/path/to/asset
         /// </summary>
         public string scriptLocation;

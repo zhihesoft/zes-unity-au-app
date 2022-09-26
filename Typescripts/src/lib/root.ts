@@ -1,4 +1,3 @@
-import { UnityEngine } from "csharp";
 import { container, singleton } from "tsyringe";
 import { Bind, FadeService, OnInit } from "zes-unity-jslib";
 
@@ -6,7 +5,7 @@ import { Bind, FadeService, OnInit } from "zes-unity-jslib";
 export class Root implements OnInit {
 
     @Bind("layers/fade/background")
-    fadeImage!: UnityEngine.UI.Image;
+    fadeImage!: CS.UnityEngine.UI.Image;
 
     zesOnInit(): void {
         console.log("root init");
@@ -15,5 +14,4 @@ export class Root implements OnInit {
         fade.setFadeImage(this.fadeImage);
         fade.in();
     }
-
 }

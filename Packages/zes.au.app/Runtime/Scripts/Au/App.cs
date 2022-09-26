@@ -1,7 +1,5 @@
-﻿using Au.Internal;
-using Au.Loaders;
+﻿using Au.Loaders;
 using Au.TS;
-using System.IO;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -15,8 +13,13 @@ namespace Au
     {
         public static Loader loader => _instance._loader;
         public static AppConfig config => _instance._config;
+#if UNITY_EDITOR
+        public static bool jsDebugMode = true;
+#else
+        public static bool jsDebugMode = false;
+#endif
 
-        public static void RestartJavascriptApp()
+        public static void RestartJS()
         {
             Assert.IsNotNull(_instance._tsApp);
             _instance._tsApp.Dispose();
@@ -25,6 +28,10 @@ namespace Au
         }
 
         private static App _instance;
+        private AppInit _init;
+        private Loader _loader;
+        private TSApp _tsApp;
+        private AppConfig _config;
 
         private void Start()
         {
@@ -53,33 +60,17 @@ namespace Au
 
         private async void RunJavascript()
         {
-            string scriptChunk = "";
-
-            if (_init.javascriptInEditor)
-            {
-                var json = await File.ReadAllTextAsync("project.json");
-                var config = JsonUtility.FromJson<ProjectConfig>(json);
-                scriptChunk = config.javascriptEntryEditor;
-            }
-            else
-            {
-                await _loader.LoadBundle(_config.bundleJS, null);
-                var js = (await _loader.LoadAsset(_init.javascriptAssetPath, typeof(TextAsset))) as TextAsset;
-                scriptChunk = js.text;
-                _loader.UnloadBundle(_config.bundleJS);
-            }
-
-            _tsApp = new TSApp(new StartupInfo
+            var startupInfo = new StartupInfo
             {
                 initActions = _init.InitJS,
-                scriptLocation = scriptChunk
-            });
-            _tsApp.Run();
+                scriptLocation = jsDebugMode
+                    ? _init.javascriptDebugPath
+                    : _init.javascriptAssetPath,
+            };
+
+            _tsApp = new TSApp(_loader, startupInfo);
+            await _tsApp.Run();
         }
 
-        private AppInit _init;
-        private Loader _loader;
-        private TSApp _tsApp;
-        private AppConfig _config;
     }
 }

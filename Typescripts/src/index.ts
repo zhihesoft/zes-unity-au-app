@@ -2,6 +2,7 @@ import "reflect-metadata";
 import { App } from "zes-unity-jslib";
 import { Root } from "./lib/root";
 
+console.log("hello world");
 App.bootstrap(Root, "root");
 
 // function wait(): Promise<void> {

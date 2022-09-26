@@ -27,7 +27,6 @@
             Foldout("Javascript", () =>
             {
                 config.javascriptProjectPath = TextField("JS project", config.javascriptProjectPath);
-                config.javascriptEntryEditor = TextField("JS editor entry", config.javascriptEntryEditor);
                 config.javascriptBuildResult = TextField("JS build result", config.javascriptBuildResult);
             });
 

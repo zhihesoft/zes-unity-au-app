@@ -6,10 +6,16 @@ namespace PuertsStaticWrap
     {
         public static void Register(Puerts.JsEnv jsEnv)
         {
+            jsEnv.AddLazyStaticWrapLoader(typeof(UnityEngine.GameObject), UnityEngine_GameObject_Wrap.GetRegisterInfo);
+                
+                
             jsEnv.AddLazyStaticWrapLoader(typeof(UnityEngine.UI.Image), UnityEngine_UI_Image_Wrap.GetRegisterInfo);
                 
                 
             jsEnv.AddLazyStaticWrapLoader(typeof(Au.App), Au_App_Wrap.GetRegisterInfo);
+                
+                
+            jsEnv.AddLazyStaticWrapLoader(typeof(Au.AppConfig), Au_AppConfig_Wrap.GetRegisterInfo);
                 
                 
             jsEnv.AddLazyStaticWrapLoader(typeof(Au.Tags), Au_Tags_Wrap.GetRegisterInfo);
