@@ -3,14 +3,14 @@
     "rootNamespace": "",
     "references": [
 		"io.github.icsharpcode.sharpziplib",
+		"com.tencent.puerts.core",
+		"com.tencent.puerts.core.Editor",
         "zes.au.app",
         "zes.au.patcher",
         "zes.au.patcher.Editor",
-		"zes.au.logger",
 		"zes.au.loaders",
 		"zes.au.loaders.Editor",
-		"zes.au.di",
-		"zes.au.ts.Editor"
+		"zes.au.di"
     ],
     "includePlatforms": [
         "Editor"

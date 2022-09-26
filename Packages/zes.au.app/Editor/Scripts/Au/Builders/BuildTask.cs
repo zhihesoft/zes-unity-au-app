@@ -10,7 +10,7 @@ namespace Au.Builders
 
         public abstract string name { get; }
 
-        protected readonly Logger logger = Logger.GetLogger<BuildTask>();
+        protected readonly Log logger = Log.GetLogger<BuildTask>();
         protected BuildRunner runner;
         protected BuildTarget target => runner.target;
 

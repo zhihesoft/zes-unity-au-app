@@ -1,8 +1,5 @@
 ﻿using Au.Builders;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
@@ -11,7 +8,6 @@ namespace Au.Forms
 {
     public class BuildPanel : SettingPanel
     {
-        private Logger logger = Logger.GetLogger<BuildPanel>();
         public override string Name => "Build";
 
         public override string DisplayName => "Build";

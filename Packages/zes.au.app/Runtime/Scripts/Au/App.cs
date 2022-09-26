@@ -55,7 +55,7 @@ namespace Au
         {
             string scriptChunk = "";
 
-            if (_init.javascriptDebugMode)
+            if (_init.javascriptInEditor)
             {
                 var json = await File.ReadAllTextAsync("project.json");
                 var config = JsonUtility.FromJson<ProjectConfig>(json);
@@ -68,7 +68,7 @@ namespace Au
                 scriptChunk = js.text;
                 _loader.UnloadBundle(_config.bundleJS);
             }
-             
+
             _tsApp = new TSApp(new StartupInfo
             {
                 onInit = _init.InitJS,

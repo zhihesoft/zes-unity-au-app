@@ -6,7 +6,7 @@ internal class TestInit : AppInit
 {
     public override string javascriptAssetPath => "Assets/Bundles/js/main.bytes";
 
-    public override bool javascriptDebugMode
+    public override bool javascriptInEditor
     {
         get
         {

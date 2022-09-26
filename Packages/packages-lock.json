@@ -1,8 +1,8 @@
 {
   "dependencies": {
     "com.tencent.puerts.core": {
-      "version": "1.4.0-preview.6",
-      "depth": 1,
+      "version": "1.4.0-rc.1",
+      "depth": 0,
       "source": "registry",
       "dependencies": {},
       "url": "https://package.openupm.com"
@@ -175,11 +175,10 @@
       "source": "embedded",
       "dependencies": {
         "io.github.icsharpcode.sharpziplib": "1.2.0",
+        "com.tencent.puerts.core": "1.4.0-rc.1",
         "zes.au.patcher": "0.2.1",
-        "zes.au.logger": "0.2.0",
         "zes.au.loaders": "0.2.1",
-        "zes.au.di": "0.2.1",
-        "zes.au.ts": "0.2.6"
+        "zes.au.di": "0.2.1"
       }
     },
     "zes.au.di": {
@@ -196,27 +195,11 @@
       "dependencies": {},
       "url": "https://package.openupm.com"
     },
-    "zes.au.logger": {
-      "version": "0.2.0",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://package.openupm.com"
-    },
     "zes.au.patcher": {
       "version": "0.2.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
-      "url": "https://package.openupm.com"
-    },
-    "zes.au.ts": {
-      "version": "0.2.6",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.tencent.puerts.core": "1.4.0-preview.6"
-      },
       "url": "https://package.openupm.com"
     },
     "com.unity.modules.ai": {

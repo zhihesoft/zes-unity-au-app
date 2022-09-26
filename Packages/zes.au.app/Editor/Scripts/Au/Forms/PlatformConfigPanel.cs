@@ -19,6 +19,7 @@ namespace Au.Forms
             config.dependencies = config.dependencies ?? new string[0];
             using (new GUILayout.VerticalScope())
             {
+                EditorGUILayout.LabelField("AppId", Application.identifier);
                 using (new GUILayout.HorizontalScope())
                 {
                     EditorGUILayout.LabelField("Dependencies");

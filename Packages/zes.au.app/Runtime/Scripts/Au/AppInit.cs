@@ -17,7 +17,7 @@ namespace Au
         /// <summary>
         /// Javascript debug mode, if true, scripts will be loaded directly from js files
         /// </summary>
-        public abstract bool javascriptDebugMode { get; }
+        public abstract bool javascriptInEditor { get; }
 
         /// <summary>
         /// Init js env

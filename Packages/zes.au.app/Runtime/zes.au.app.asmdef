@@ -5,8 +5,7 @@
         "zes.au.patcher",
 		"zes.au.logger",
 		"zes.au.loaders",
-		"zes.au.di",
-		"zes.au.ts"
+		"zes.au.di"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
