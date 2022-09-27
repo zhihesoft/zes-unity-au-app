@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Au.TS;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -8,6 +9,7 @@ using UnityEngine.SceneManagement;
 
 namespace Au.Loaders
 {
+    [JSWrap]
     public abstract class Loader
     {
         protected static Log log = Log.GetLogger<Loader>();

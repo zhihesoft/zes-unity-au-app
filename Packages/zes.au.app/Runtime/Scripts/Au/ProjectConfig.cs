@@ -9,14 +9,14 @@ namespace Au
         public int languageStartId = 18000;
         // language config name
         public string languageConfigName = "language";
-        // Bundle data dir
-        public string bundleDataPath = "Bundles";
         // bundle output path
         public string bundleOutputPath = "AssetBundles";
         // javascript project path
         public string javascriptProjectPath = "Typescripts";
-        // javascript build result
-        public string javascriptBuildResult = "Typescripts/out/main.bytes";
+        // javascript debug
+        public string javascriptDebugEntry = "./Typescripts/dist/index.js";
+        // javascript release
+        public string javascriptReleaseEntry = "./Typescript/out/main.bytes";
 
     }
 }

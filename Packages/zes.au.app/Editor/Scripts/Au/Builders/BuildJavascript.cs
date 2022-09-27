@@ -32,14 +32,14 @@ namespace Au.Builders
                 return false;
             }
 
-            var source = new FileInfo(projectConfig.javascriptBuildResult);
+            var source = new FileInfo(projectConfig.javascriptReleaseEntry);
             if (!source.Exists)
             {
                 logger.Error($"{source.FullName} not existed");
                 return false;
             }
 
-            var target = Path.Combine(projectConfig.bundleDataPath, appConfig.bundleJS, source.Name);
+            var target = Path.Combine(appConfig.bundleDataPath, appConfig.bundleJS, source.Name);
 
             source.CopyTo(target, true);
             return true;

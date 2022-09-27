@@ -29,7 +29,7 @@ namespace Au.Forms
             EditorGUILayout.LabelField("App config", GameSettingsManager.current.appConfig.name);
             EditorGUILayout.LabelField("Build no.", buildNo.ToString());
             EditorGUILayout.LabelField("Excels", GameSettingsManager.current.GetLocalConfig().excelsDirectory);
-            EditorGUILayout.LabelField("Bundles", GameSettingsManager.current.projectConfig.bundleDataPath);
+            EditorGUILayout.LabelField("Bundles", GameSettingsManager.current.appConfig.bundleDataPath);
             EditorGUILayout.LabelField("Output", GameSettingsManager.current.GetLocalConfig().outputDirectory);
             EditorGUILayout.Space();
 

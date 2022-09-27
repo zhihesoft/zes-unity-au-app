@@ -12,7 +12,7 @@ namespace Au.Builders
 
         protected override bool BeforeBuild()
         {
-            Au.Loaders.ResourceBuilder.AutoCreateBundleNames(GameSettingsManager.current.projectConfig.bundleDataPath);
+            Loaders.ResourceBuilder.AutoCreateBundleNames(GameSettingsManager.current.appConfig.bundleDataPath);
             return GameSettingsManager.current != null;
         }
 

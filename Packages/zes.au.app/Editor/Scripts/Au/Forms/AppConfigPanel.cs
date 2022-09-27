@@ -42,9 +42,11 @@ namespace Au.Forms
 
             Foldout("Bundle Settings", () =>
             {
+                appConfig.bundleDataPath = TextField("Bundles", appConfig.bundleDataPath);
                 appConfig.bundleConfig = TextField("Config bundle", appConfig.bundleConfig);
                 appConfig.bundleLanguage = TextField("Language bundle", appConfig.bundleLanguage);
                 appConfig.bundleJS = TextField("Javascript bundle", appConfig.bundleJS);
+                appConfig.jsEntry = TextField("Javascript entry", appConfig.jsEntry);
             });
         }
     }

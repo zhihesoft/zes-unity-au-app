@@ -37,8 +37,8 @@ namespace Au.Builders
             DirectoryInfo outClientDir = new DirectoryInfo(Path.Combine(workDir.FullName, "output", "client"));
             DirectoryInfo outLanguageDir = new DirectoryInfo(Path.Combine(workDir.FullName, "output", "language"));
 
-            DirectoryInfo targetConfDir = new DirectoryInfo(Path.Combine(projectConfig.bundleDataPath, appConfig.bundleConfig));
-            DirectoryInfo targetLanguageDir = new DirectoryInfo(Path.Combine(projectConfig.bundleDataPath, appConfig.bundleLanguage));
+            DirectoryInfo targetConfDir = new DirectoryInfo(Path.Combine(appConfig.bundleDataPath, appConfig.bundleConfig));
+            DirectoryInfo targetLanguageDir = new DirectoryInfo(Path.Combine(appConfig.bundleDataPath, appConfig.bundleLanguage));
 
             Utils.DirEnsure(targetConfDir.FullName);
             Utils.DirEnsure(targetLanguageDir.FullName);

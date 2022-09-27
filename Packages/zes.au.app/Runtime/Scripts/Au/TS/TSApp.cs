@@ -24,7 +24,9 @@ namespace Au.TS
         /// Local file file://path/to/file
         /// Bundle file bundle://bundlename/path/to/asset
         /// </param>
-        public TSApp(Loader loader, string scriptLocation) : this(loader, new StartupInfo { scriptLocation = scriptLocation }) { }
+        public TSApp(Loader loader, string scriptLocation)
+            : this(loader, new StartupInfo { scriptLocation = scriptLocation })
+        { }
 
         public TSApp(Loader loader, StartupInfo startupInfo)
         {
@@ -69,6 +71,12 @@ namespace Au.TS
             startupInfo.initActions?.Invoke(env);
             env.Eval($"require('{jsLoader.rootFile}');");
             return true;
+        }
+
+        public async Task<bool> Restart()
+        {
+            Dispose();
+            return await Run();
         }
 
         public void Dispose()

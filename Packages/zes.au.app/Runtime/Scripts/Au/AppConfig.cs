@@ -24,11 +24,15 @@ namespace Au
         // if check update
         public bool checkUpdate = true;
 
+        // Bundle data dir
+        public string bundleDataPath = "Bundles";
         // javascript entry for runtime
         public string bundleJS = "js";
         // Config bundle name
         public string bundleConfig = "conf";
         // Language bundle name
         public string bundleLanguage = "language";
+        // Javascript entry file. Only for release mode
+        public string jsEntry = "main.bytes";
     }
 }

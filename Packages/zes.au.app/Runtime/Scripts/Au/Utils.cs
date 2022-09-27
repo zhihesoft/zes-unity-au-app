@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace Au
 {
@@ -64,6 +65,38 @@ namespace Au
             return stamp;
         }
 
+        /// <summary>
+        /// Copy file
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="dest"></param>
+        /// <returns></returns>
+        public static async Task<bool> FileCopy(string source, string dest)
+        {
+            if (source.StartsWith("jar:"))
+            {
+                var www = UnityWebRequest.Get(source);
+                www.downloadHandler = new DownloadHandlerFile(dest);
+                var op = www.SendWebRequest();
+                await WaitAsyncOperation(op);
+            }
+            else
+            {
+                File.Copy(source, dest, true);
+            }
+            return true;
+        }
+
+        public static void FileSave(string text, string dest)
+        {
+            File.WriteAllText(dest, text);
+        }
+
+        public static bool FileExists(string path)
+        {
+            return File.Exists(path);
+        }
+
         public static DirectoryInfo DirEnsure(string dir)
         {
             return DirEnsure(new DirectoryInfo(dir));
@@ -82,6 +115,20 @@ namespace Au
                 dir.Create();
             }
 
+            return dir;
+        }
+
+        public static DirectoryInfo DirClear(string dir)
+        {
+            return DirClear(new DirectoryInfo(dir));
+        }
+
+        // clear dir
+        public static DirectoryInfo DirClear(DirectoryInfo dir)
+        {
+            DirEnsure(dir);
+            dir.GetFiles().ToList().ForEach(f => f.Delete());
+            dir.GetDirectories().ToList().ForEach(d => d.Delete(true));
             return dir;
         }
 

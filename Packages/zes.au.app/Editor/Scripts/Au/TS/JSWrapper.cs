@@ -43,6 +43,10 @@ namespace Au.TS
             {
                 return new Type[]
                 {
+                    // system
+                    typeof(System.IO.Path),
+
+                    // unity engine
                     typeof(Vector2),
                     typeof(Vector3),
                     typeof(Color),
@@ -80,6 +84,8 @@ namespace Au.TS
                     typeof(UnityEngine.AI.NavMeshAgent),
 
                     typeof(TMP_Text),
+
+
 
                 };
             }

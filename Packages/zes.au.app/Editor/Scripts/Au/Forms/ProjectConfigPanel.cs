@@ -14,7 +14,6 @@
 
             Foldout("Bundles", () =>
             {
-                config.bundleDataPath = TextField("Bundle data dir", config.bundleDataPath);
                 config.bundleOutputPath = TextField("Bundle out dir", config.bundleOutputPath);
             });
 
@@ -27,7 +26,8 @@
             Foldout("Javascript", () =>
             {
                 config.javascriptProjectPath = TextField("JS project", config.javascriptProjectPath);
-                config.javascriptBuildResult = TextField("JS build result", config.javascriptBuildResult);
+                config.javascriptDebugEntry = TextField("JS debug entry", config.javascriptDebugEntry);
+                config.javascriptReleaseEntry = TextField("JS release entry", config.javascriptReleaseEntry);
             });
 
         }

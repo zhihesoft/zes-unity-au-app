@@ -96,60 +96,6 @@ namespace Au
 
         }
 
-        public static DirectoryInfo DirEnsure(string dir)
-        {
-            return DirEnsure(new DirectoryInfo(dir));
-        }
-
-        // ensure dir exist
-        public static DirectoryInfo DirEnsure(DirectoryInfo dir)
-        {
-            if (!dir.Parent.Exists)
-            {
-                DirEnsure(dir.Parent);
-            }
-
-            if (!dir.Exists)
-            {
-                dir.Create();
-            }
-
-            return dir;
-        }
-
-        public static DirectoryInfo DirClear(string dir)
-        {
-            return DirClear(new DirectoryInfo(dir));
-        }
-
-        // clear dir
-        public static DirectoryInfo DirClear(DirectoryInfo dir)
-        {
-            DirEnsure(dir);
-            dir.GetFiles().ToList().ForEach(f => f.Delete());
-            dir.GetDirectories().ToList().ForEach(d => d.Delete(true));
-            return dir;
-        }
-
-        public static void DirCopy(string from, string to)
-        {
-            DirCopy(new DirectoryInfo(from), new DirectoryInfo(to));
-        }
-
-        public static void DirCopy(DirectoryInfo from, DirectoryInfo to)
-        {
-            if (!from.Exists)
-            {
-                UnityEngine.Debug.LogError($"Copy dir failed: {from.FullName} not existed");
-                return;
-            }
-
-            DirEnsure(to);
-
-            from.GetFiles().ToList().ForEach(file => file.CopyTo(Path.Combine(to.FullName, file.Name), true));
-            from.GetDirectories().ToList().ForEach(dir => DirCopy(dir, new DirectoryInfo(Path.Combine(to.FullName, dir.Name))));
-        }
-
         public static string CombineUri(string baseUri, string path)
         {
             if (!baseUri.EndsWith("/"))
@@ -171,8 +117,6 @@ namespace Au
             ClearTemplateFiles(templateDir, null);
         }
 
-
-
         private static void ClearTemplateFiles(string templateDir, string childDir)
         {
             childDir = childDir ?? ".";
@@ -191,24 +135,6 @@ namespace Au
             {
                 ClearTemplateFiles(templateDir, Path.Combine(childDir, dir.Name));
             });
-        }
-
-        private static void SaveJsonObj<T>(T obj, string path) where T : class
-        {
-            var json = JsonUtility.ToJson(obj, true);
-            File.WriteAllText(path, json, Utils.utf8WithoutBOM);
-        }
-
-        private static T LoadJsonObj<T>(string path) where T : class
-        {
-            if (!File.Exists(path))
-            {
-                return null;
-            }
-
-            var content = File.ReadAllText(path);
-            var obj = JsonUtility.FromJson<T>(content);
-            return obj;
         }
     }
 }
