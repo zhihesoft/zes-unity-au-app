@@ -1,5 +1,6 @@
 ﻿using Au.Loaders;
 using Au.TS;
+using System;
 using System.IO;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -41,6 +42,9 @@ namespace Au
 
         public static Loader loader => _instance._loader;
         public static AppConfig config => _instance._config;
+
+        public static Func<int, string> i18n { get; private set; }
+
         public static async Task<bool> RestartJS()
         {
             Assert.IsNotNull(_instance._tsApp);
@@ -97,6 +101,7 @@ namespace Au
                 scriptLocation = scriptLocation,
             };
             _tsApp = new TSApp(_loader, startupInfo);
+            i18n = _tsApp.GetFunc<Func<int, string>>("i18n");
             await _tsApp.Run();
         }
     }
