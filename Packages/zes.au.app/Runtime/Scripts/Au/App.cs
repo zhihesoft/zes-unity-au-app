@@ -42,7 +42,6 @@ namespace Au
 
         public static Loader loader => _instance._loader;
         public static AppConfig config => _instance._config;
-
         public static Func<int, string> i18n { get; private set; }
 
         public static async Task<bool> RestartJS()
@@ -101,8 +100,8 @@ namespace Au
                 scriptLocation = scriptLocation,
             };
             _tsApp = new TSApp(_loader, startupInfo);
-            i18n = _tsApp.GetFunc<Func<int, string>>("i18n");
             await _tsApp.Run();
+            i18n = _tsApp.GetFunc<Func<int, string>>("i18n");
         }
     }
 }

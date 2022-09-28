@@ -1,9 +1,10 @@
 import "reflect-metadata";
+import { container } from "tsyringe";
 import { App } from "zes-unity-jslib";
 import { Root } from "./lib/root";
 
 export const i18n = App.i18n;
-
+App.container = container;
 App.bootstrap(Root, "root");
 
 

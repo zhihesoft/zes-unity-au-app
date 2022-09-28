@@ -22,7 +22,11 @@ namespace Au
 
         private string GetText()
         {
-            return App.i18n.Invoke(languageId);
+            if (App.i18n == null)
+            {
+                return languageId.ToString();
+            }
+            return App.i18n?.Invoke(languageId);
         }
 
         private void SetText(string value)
