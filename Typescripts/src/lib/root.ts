@@ -11,9 +11,7 @@ export class Root implements OnInit {
     label!: CS.TMPro.TMP_Text;
 
     async zesOnInit() {
-        console.log("root init");
-
-
+        logger.info("root init");
         const i18n_svc = container.resolve(I18nService);
         const language = CS.Au.App.config.appLanguage;
         const languageBundle = CS.Au.App.config.bundleLanguage;
