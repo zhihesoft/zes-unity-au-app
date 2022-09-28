@@ -7,7 +7,9 @@
     "patchServer": "http://localhost:3001/patch",
     "minVersion": "0.0.0",
     "checkUpdate": false,
+    "bundleDataPath": "Bundles",
     "bundleJS": "js",
     "bundleConfig": "confs",
-    "bundleLanguage": "language"
+    "bundleLanguage": "language",
+    "jsEntry": "main.bytes"
 }

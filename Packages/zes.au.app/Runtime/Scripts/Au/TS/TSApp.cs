@@ -66,6 +66,7 @@ namespace Au.TS
                 res.UnloadBundle(bundle);
             }
             env = new JsEnv(jsLoader, startupInfo.debugPort);
+            Puerts.ThirdParty.CommonJS.InjectSupportForCJS(env);
             //await env.WaitDebuggerAsync();
             CommonInit(env);
             startupInfo.initActions?.Invoke(env);

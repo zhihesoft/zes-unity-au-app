@@ -30,6 +30,7 @@ MonoBehaviour:
     m_Url: https://package.openupm.com
     m_Scopes:
     - com.openupm
+    - com.tencent.puerts.commonjs
     - com.tencent.puerts.core
     - io.github.icsharpcode.sharpziplib
     m_IsDefault: 0

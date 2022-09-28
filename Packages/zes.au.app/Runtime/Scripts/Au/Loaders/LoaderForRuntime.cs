@@ -29,6 +29,7 @@ namespace Au.Loaders
 
         protected override async Task<UnityEngine.Object> LoadingAsset(string path, Type type)
         {
+            path = path.ToLower();
             if (!assets2bundle.TryGetValue(path, out var item))
             {
                 log.Error($"Cannot find bundle for {path}");
@@ -72,6 +73,7 @@ namespace Au.Loaders
                 bundlePath = Path.Combine(Application.streamingAssetsPath, name);
                 if (!File.Exists(bundlePath))
                 {
+                    log.Error($"Load bundle {bundlePath} failed: File not found");
                     return false;
                 }
 #endif
@@ -86,12 +88,18 @@ namespace Au.Loaders
             }
 
             Debug.Assert(bundle != null, $"load bundle {name} failed, result is null");
+            log.Info($"Load bundle {name} succ~");
             bundles.Add(name, bundle);
             if (!bundle.isStreamedSceneAssetBundle)
             {
                 bundle.GetAllAssetNames()
+                    .Select(i =>
+                    {
+                        log.Info($"Bundle {name} contains: {i}");
+                        return i;
+                    })
                     .ToList()
-                    .ForEach(i => assets2bundle.Add(i, name));
+                    .ForEach(i => assets2bundle.Add(i.ToLower(), name));
             }
 
             return true;

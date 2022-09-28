@@ -39,7 +39,7 @@ namespace Au.Builders
                 return false;
             }
 
-            var target = Path.Combine(appConfig.bundleDataPath, appConfig.bundleJS, source.Name);
+            var target = Path.Combine("Assets", appConfig.bundleDataPath, appConfig.bundleJS, source.Name);
 
             source.CopyTo(target, true);
             return true;

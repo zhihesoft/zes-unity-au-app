@@ -13,8 +13,8 @@ namespace Au.TS
         {
             this.chunk = chunk;
             bundleMode = !File.Exists(chunk);
-            rootFile = bundleMode ? "_" : chunk;
-            log.Info($"bundleMode: {bundleMode}");
+            rootFile = bundleMode ? "./main.bytes" : chunk;
+            log.Info($"JSLoader.bundleMode: {bundleMode}");
         }
 
         private Log log = Log.GetLogger<JSLoader>();
@@ -23,7 +23,7 @@ namespace Au.TS
 
         private readonly string chunk;
 
-        private const string puerPrefix = "puerts";
+        private const string puerPrefix = "puer";
 
         private ILoader puerLoader = new DefaultLoader();
 

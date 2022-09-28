@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using UnityEditor;
+using UnityEngine;
 
 namespace Au.Loaders
 {
@@ -8,6 +9,8 @@ namespace Au.Loaders
     /// </summary>
     public static class ResourceBuilder
     {
+        private static Log log = Log.GetLogger("ResourceBuilder");
+
         /// <summary>
         /// Auto create bundle names in dir Assets/{path}
         /// Assume each sub-dir is a bundle
@@ -15,11 +18,16 @@ namespace Au.Loaders
         /// <param name="path"></param>
         public static void AutoCreateBundleNames(string path)
         {
-            var bundles = new DirectoryInfo(Path.Combine(path));
+            var bundles = new DirectoryInfo(path);
             var dirs = bundles.GetDirectories();
             foreach (var dir in dirs)
             {
                 var importer = AssetImporter.GetAtPath(Path.Combine(path, dir.Name));
+                if (importer == null)
+                {
+                    log.Error($"AssetImporter is null : {Path.Combine(path, dir.Name)}");
+                    continue;
+                }
                 importer.assetBundleName = dir.Name.ToLower();
             }
             AssetDatabase.RemoveUnusedAssetBundleNames();

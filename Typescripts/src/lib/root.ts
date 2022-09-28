@@ -1,13 +1,13 @@
 import { container, singleton } from "tsyringe";
-import { Bind, FadeService, I18nService, OnInit } from "zes-unity-jslib";
+import { bind, FadeService, I18nService, OnInit } from "zes-unity-jslib";
 import { getLogger } from "zes-unity-jslib/dist/lib/logger";
 
 @singleton()
 export class Root implements OnInit {
 
-    @Bind("#fade")
+    @bind("#fade")
     fadeImage!: CS.UnityEngine.CanvasGroup
-    @Bind("#label")
+    @bind("#label")
     label!: CS.TMPro.TMP_Text;
 
     async zesOnInit() {
@@ -17,7 +17,7 @@ export class Root implements OnInit {
         const languageBundle = CS.Au.App.config.bundleLanguage;
         await i18n_svc.load(language, `${languageBundle}/i18n-${language}.json`);
         const fade = container.resolve(FadeService);
-        container.register(FadeService.fadeLayer, { useValue: this.fadeImage });
+        fade.canvas = this.fadeImage;
         fade.in();
     }
 }

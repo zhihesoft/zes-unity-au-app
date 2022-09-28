@@ -2,7 +2,8 @@
     "name": "zes.au.app",
     "references": [
 		"Unity.TextMeshPro",
-		"com.tencent.puerts.core"
+		"com.tencent.puerts.core",
+		"com.tencent.puerts.commonjs"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

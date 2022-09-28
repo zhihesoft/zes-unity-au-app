@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 namespace Au
@@ -12,7 +7,6 @@ namespace Au
     {
         private static Log log = Log.GetLogger<I18n>();
 
-        [Tooltip("Language ID")]
         public int languageId;
 
         private void Start()
@@ -26,7 +20,7 @@ namespace Au
             {
                 return languageId.ToString();
             }
-            return App.i18n?.Invoke(languageId);
+            return App.i18n.Invoke(languageId);
         }
 
         private void SetText(string value)

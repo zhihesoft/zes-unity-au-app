@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEditor;
+using UnityEngine;
 
 namespace Au.Builders
 {
@@ -45,6 +46,18 @@ namespace Au.Builders
                 appOutputName,
                 extension
                 );
+
+            if (target == BuildTarget.StandaloneWindows64 || target == BuildTarget.StandaloneWindows)
+            {
+                outputPath = string.Format("{0}/{1}/{2}{3}",
+                                outputDir,
+                                appOutputName,
+                                Application.productName,
+                                ".exe"
+                                );
+            }
+
+
             string[] scenes = EditorHelper.GetBuildScenes();
 
             BuildPlayerOptions opts = new BuildPlayerOptions()
@@ -54,9 +67,11 @@ namespace Au.Builders
                 target = target,
             };
 
+            bool result = false;
 #if USING_AAB
             opts.targetGroup = BuildTargetGroup.Android;
             Google.Android.AppBundle.Editor.Internal.AppBundlePublisher.Build(opts, null, true);
+            result = true;
 #else
             var report = BuildPipeline.BuildPlayer(opts);
 
@@ -67,6 +82,7 @@ namespace Au.Builders
             if (report.summary.result == UnityEditor.Build.Reporting.BuildResult.Succeeded)
             {
                 logger.Info($"build succ !!");
+                result = true;
             }
             if (report.summary.result == UnityEditor.Build.Reporting.BuildResult.Cancelled)
             {
@@ -78,7 +94,7 @@ namespace Au.Builders
             }
 #endif
 
-            return false;
+            return result;
         }
     }
 }

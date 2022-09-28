@@ -6,6 +6,7 @@
 		"Unity.TextMeshPro",
 		"com.tencent.puerts.core",
 		"com.tencent.puerts.core.Editor",
+		"com.tencent.puerts.commonjs",
         "zes.au.app"
     ],
     "includePlatforms": [

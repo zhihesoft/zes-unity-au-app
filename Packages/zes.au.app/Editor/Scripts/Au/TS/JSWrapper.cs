@@ -99,6 +99,10 @@ namespace Au.TS
                 // Debug.Log($"{mb} is ignore");
                 return true;
             }
+            if (mb.Name == "OnRebuildRequested")
+            {
+                return true;
+            }
             return false;
         }
     }
