@@ -8,6 +8,6 @@ namespace Au.Patcher
     {
         public string app;
         public string version;
-        public Dictionary<string, PatchFileInfo> files;
+        public PatchFileInfo[] files;
     }
 }

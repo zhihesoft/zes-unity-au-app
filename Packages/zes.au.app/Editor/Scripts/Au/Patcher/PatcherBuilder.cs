@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
@@ -52,12 +50,11 @@ namespace Au.Patcher
         /// </summary>
         /// <param name="bundlesDir"></param>
         /// <returns></returns>
-        private static Dictionary<string, PatchFileInfo> CalcBundleHash(string bundlesDir, bool useShortHash)
+        private static PatchFileInfo[] CalcBundleHash(string bundlesDir, bool useShortHash)
         {
             AssetBundle.UnloadAllAssetBundles(true);
             var bundles = GetBundles(bundlesDir);
-            var ret = bundles.ToDictionary(
-                i => i,
+            var ret = bundles.Select(
                 i =>
                 {
                     string path = Path.Combine(bundlesDir, i);
@@ -73,9 +70,9 @@ namespace Au.Patcher
                     {
                         md5sum = md5sum.Substring(0, 8);
                     }
-                    return new PatchFileInfo { md5 = md5sum, size = size };
+                    return new PatchFileInfo { md5 = md5sum, size = size, path = i };
                 }
-            );
+            ).ToArray();
             AssetBundle.UnloadAllAssetBundles(true);
             return ret;
         }
@@ -129,8 +126,7 @@ namespace Au.Patcher
             Encoding utf8WithoutBOM = new UTF8Encoding(false);
             using (StreamWriter writer = new StreamWriter(path, false, utf8WithoutBOM))
             {
-                var json = JsonConvert.SerializeObject(obj, prettyPrint ? Formatting.Indented : Formatting.None);
-                // var json = JsonUtility.ToJson(obj, prettyPrint);
+                var json = JsonUtility.ToJson(obj, prettyPrint);
                 writer.Write(json);
             }
         }
