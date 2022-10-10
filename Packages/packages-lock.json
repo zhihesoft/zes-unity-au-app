@@ -1,14 +1,14 @@
 {
   "dependencies": {
     "com.tencent.puerts.commonjs": {
-      "version": "1.0.1",
+      "version": "1.1.0-pre.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
       "url": "https://package.openupm.com"
     },
     "com.tencent.puerts.core": {
-      "version": "1.4.0-rc.1",
+      "version": "1.4.0-rc.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -156,8 +156,8 @@
       "dependencies": {
         "io.github.icsharpcode.sharpziplib": "1.2.0",
         "com.unity.textmeshpro": "3.0.6",
-        "com.tencent.puerts.commonjs": "1.0.1",
-        "com.tencent.puerts.core": "1.4.0-rc.1"
+        "com.tencent.puerts.commonjs": "1.1.0-pre.0",
+        "com.tencent.puerts.core": "1.4.0-rc.2"
       }
     },
     "com.unity.modules.ai": {

@@ -53,7 +53,7 @@ namespace Au.TS
                 debugpath = filepath;
                 return chunk;
             }
-            debugpath = new FileInfo(filepath).FullName + ".map";
+            debugpath = new FileInfo(filepath).FullName;
             return File.ReadAllText(filepath);
         }
     }
