@@ -16,6 +16,12 @@ namespace Au.Loaders
         protected Dictionary<string, AssetBundle> bundles = new Dictionary<string, AssetBundle>();
         protected Dictionary<string, string> assets2bundle = new Dictionary<string, string>();
 
+        public override void UnloadAllBundles()
+        {
+            bundles.Values.ToList().ForEach(v => v.Unload(true));
+            bundles.Clear();
+        }
+
         public override bool UnloadBundle(string name)
         {
             if (bundles.TryGetValue(name, out var bundle))

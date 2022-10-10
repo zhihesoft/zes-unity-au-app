@@ -10,6 +10,10 @@ namespace Au.Loaders
 {
     public class LoaderForEditor : Loader
     {
+        public override void UnloadAllBundles()
+        {
+        }
+
         public override bool UnloadBundle(string name)
         {
             return true;

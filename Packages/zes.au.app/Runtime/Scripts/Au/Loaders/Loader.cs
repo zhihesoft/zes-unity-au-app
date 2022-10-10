@@ -112,6 +112,8 @@ namespace Au.Loaders
             });
         }
 
+        public abstract void UnloadAllBundles();
+
         /// <summary>
         /// Load a scene
         /// </summary>
