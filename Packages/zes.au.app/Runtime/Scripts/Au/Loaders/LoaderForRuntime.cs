@@ -77,17 +77,17 @@ namespace Au.Loaders
                 bundle = bundleReq.AssetBundle;
 #else
                 bundlePath = Path.Combine(Application.streamingAssetsPath, name);
-                if (!File.Exists(bundlePath))
-                {
-                    log.Error($"Load bundle {bundlePath} failed: File not found");
-                    return false;
-                }
+                //if (!File.Exists(bundlePath))
+                //{
+                //    log.Error($"Load bundle {bundlePath} failed: File not found");
+                //    return false;
+                //}
 #endif
             }
 
             if (bundle == null)
             {
-                Debug.Assert(File.Exists(bundlePath), $"cannot find bundle in path: ({bundlePath})");
+                // Debug.Assert(File.Exists(bundlePath), $"cannot find bundle in path: ({bundlePath})");
                 var bundlereq = AssetBundle.LoadFromFileAsync(bundlePath);
                 await Utils.WaitAsyncOperation(bundlereq, progress);
                 bundle = bundlereq.assetBundle;
