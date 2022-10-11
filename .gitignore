@@ -2,7 +2,6 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
-Assets/Gen/
 out/
 AssetBundles/
 .localconfig
@@ -26,6 +25,10 @@ Typescripts/out/
 
 Assets/StreamingAssets.meta
 Assets/StreamingAssets/
+Assets/Plugins.meta
+Assets/Plugins/
+Assets/Gen.meta
+Assets/Gen/
 
 
 # Uncomment this line if you wish to ignore the asset store tools plugin

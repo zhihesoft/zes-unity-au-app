@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using Au.TS;
+using UnityEditor;
 using UnityEngine;
 
 namespace Au
@@ -22,6 +23,13 @@ namespace Au
         {
             PlayerPrefs.DeleteAll();
             PlayerPrefs.Save();
+        }
+
+        [MenuItem("Au/Utils/Import puerts plugin files")]
+        public static void ImportJsBins()
+        {
+            JSBinImporter.Import();
+            AssetDatabase.Refresh();
         }
     }
 }

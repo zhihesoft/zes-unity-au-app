@@ -1,5 +1,6 @@
 ﻿using Au.TS;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -147,8 +148,13 @@ namespace Au
 
             DirEnsure(to);
 
-            from.GetFiles().ToList().ForEach(file => file.CopyTo(Path.Combine(to.FullName, file.Name), true));
-            from.GetDirectories().ToList().ForEach(dir => DirCopy(dir, new DirectoryInfo(Path.Combine(to.FullName, dir.Name))));
+            from.GetFiles()
+                .ToList()
+                .ForEach(file => file.CopyTo(Path.Combine(to.FullName, file.Name), true));
+
+            from.GetDirectories()
+                .ToList()
+                .ForEach(dir => DirCopy(dir, new DirectoryInfo(Path.Combine(to.FullName, dir.Name))));
         }
 
     }
