@@ -1,12 +1,20 @@
 import "reflect-metadata";
 import { container } from "tsyringe";
-import { App } from "zes-unity-jslib";
+import { App, HttpConnector } from "zes-unity-jslib";
 import { Root } from "./lib/root";
 
 export const i18n = App.i18n;
 App.container = container;
 App.bootstrap(Root, "root");
 
+const http = new HttpConnector("http://ip.jsontest.com/");
+
+async function getbaidu() {
+    const ret = await http.get("/");
+    console.log(JSON.stringify(ret));
+}
+
+getbaidu();
 
 // function wait(): Promise<void> {
 //     return new Promise(resolve => {
@@ -14,6 +22,7 @@ App.bootstrap(Root, "root");
 //             resolve();
 //         }, 1000);
 //     })
+
 // }
 
 // let watiCount = 0;
