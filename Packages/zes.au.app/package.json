@@ -1,7 +1,7 @@
 {
   "name": "zes.au.app",
   "displayName": "Au App",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Au App library for Unity3D",
   "keywords": ["Au", "Script", "Framework", "Library"],
   "author": {

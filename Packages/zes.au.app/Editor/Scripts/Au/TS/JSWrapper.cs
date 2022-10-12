@@ -84,8 +84,8 @@ namespace Au.TS
                     typeof(UnityEngine.AI.NavMeshAgent),
 
                     typeof(TMP_Text),
-
-
+                    typeof(TMP_InputField),
+                    typeof(TMP_Dropdown),
 
                 };
             }
