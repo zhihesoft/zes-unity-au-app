@@ -94,14 +94,14 @@ namespace Au.Loaders
             }
 
             Debug.Assert(bundle != null, $"load bundle {name} failed, result is null");
-            log.Info($"Load bundle {name} succ~");
+            log.Info($"Load bundle {name} succ ~");
             bundles.Add(name, bundle);
             if (!bundle.isStreamedSceneAssetBundle)
             {
                 bundle.GetAllAssetNames()
                     .Select(i =>
                     {
-                        log.Info($"Bundle {name} contains: {i}");
+                        // log.Info($"Bundle {name} contains: {i}");
                         return i;
                     })
                     .ToList()
